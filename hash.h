@@ -37,7 +37,7 @@ typedef struct hash_table {
 /* Function Prototypes                                                     */
 /***************************************************************************/
 hash_table_t* ht_create(size_t table_size, unsigned long (*hash_func)(void*));
-void ht_add(hash_table_t* hash_table, void* key, size_t key_size, void* val, size_t val_size);
+int ht_add(hash_table_t* hash_table, void* key, size_t key_size, void* val, size_t val_size);
 int ht_remove(hash_table_t* hash_table, void* key, size_t key_size);
 void* ht_get(hash_table_t* hash_table, void* key, size_t key_size);
 unsigned long hash_string(void* string);

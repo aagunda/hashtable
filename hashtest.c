@@ -13,6 +13,7 @@ int main(void)
   ht_add(test_table, "eee", 4, "555", 4);
   ht_add(test_table, "fff", 4, "666", 4);
   ht_add(test_table, "ggg", 4, "777", 4);
+  ht_add(test_table, "ggg", 4, "888", 4);
   
   printf("%s\n", (char*)ht_get(test_table, "aaa", 4));
   printf("%s\n", (char*)ht_get(test_table, "bbb", 4));
