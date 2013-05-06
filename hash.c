@@ -6,16 +6,16 @@
 
 
 typedef struct ht_node {
-	struct ht_node* next;
-	void* key;
-	void* val;
+  struct ht_node* next;
+  void* key;
+  void* val;
 } htnode_t;
 
 
 typedef struct hash_table {
-	htnode_t** table;
-	size_t table_size;
-	unsigned long (*hash_func)(void*);
+  htnode_t** table;
+  size_t table_size;
+  unsigned long (*hash_func)(void*);
 } hash_table_t;
 
 
