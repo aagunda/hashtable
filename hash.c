@@ -1,24 +1,20 @@
-//hash tables
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+/*
+ * hash.c
+ *
+ * Author: aagunda
+ * Description: simple hashtable implementation
+ */ 
 
 
-
-typedef struct ht_node {
-  struct ht_node* next;
-  void* key;
-  void* val;
-} htnode_t;
+/***************************************************************************/
+/* Includes                                                                */
+/***************************************************************************/
+#include "hash.h"
 
 
-typedef struct hash_table {
-  htnode_t** table;
-  size_t table_size;
-  unsigned long (*hash_func)(void*);
-} hash_table_t;
-
-
+/***************************************************************************/
+/* Function Definitions                                                    */
+/***************************************************************************/
 hash_table_t* ht_create(size_t table_size, unsigned long (*hash_func)(void*))
 {
   hash_table_t* new_table = malloc(sizeof(*new_table));
@@ -120,42 +116,3 @@ unsigned long hash_string(void* string)
   return hash;
 }
 
-
-int main(void)
-{
-  hash_table_t* test_table = ht_create(20, hash_string);
-  
-  ht_add(test_table, "aaa", 4, "111", 4);
-  ht_add(test_table, "bbb", 4, "222", 4);
-  ht_add(test_table, "ccc", 4, "333", 4);
-  ht_add(test_table, "ddd", 4, "444", 4);
-  ht_add(test_table, "eee", 4, "555", 4);
-  ht_add(test_table, "fff", 4, "666", 4);
-  ht_add(test_table, "ggg", 4, "777", 4);
-  
-  printf("%s\n", (char*)ht_get(test_table, "aaa", 4));
-  printf("%s\n", (char*)ht_get(test_table, "bbb", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ccc", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ddd", 4));
-  printf("%s\n", (char*)ht_get(test_table, "eee", 4));
-  printf("%s\n", (char*)ht_get(test_table, "fff", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ggg", 4));
-  
-  ht_remove(test_table, "aaa", 4);
-  ht_remove(test_table, "bbb", 4);
-  ht_remove(test_table, "ccc", 4);
-  ht_remove(test_table, "ddd", 4);
-  ht_remove(test_table, "eee", 4);
-  ht_remove(test_table, "fff", 4);
-  ht_remove(test_table, "ggg", 4);
-  
-  printf("%s\n", (char*)ht_get(test_table, "aaa", 4));
-  printf("%s\n", (char*)ht_get(test_table, "bbb", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ccc", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ddd", 4));
-  printf("%s\n", (char*)ht_get(test_table, "eee", 4));
-  printf("%s\n", (char*)ht_get(test_table, "fff", 4));
-  printf("%s\n", (char*)ht_get(test_table, "ggg", 4));
-  
-  return 0;
-}
