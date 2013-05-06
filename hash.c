@@ -21,10 +21,10 @@ typedef struct hash_table {
 
 hash_table_t* ht_create(size_t table_size, unsigned long (*hash_func)(void*))
 {
-	hash_table_t* new_table = malloc(sizeof(*new_table));
-	new_table->table = calloc(table_size, sizeof(*new_table->table));
-	new_table->table_size = table_size;
-	new_table->hash_func = hash_func;
+  hash_table_t* new_table = malloc(sizeof(*new_table));
+  new_table->table = calloc(table_size, sizeof(*new_table->table));
+  new_table->table_size = table_size;
+  new_table->hash_func = hash_func;
 
   return new_table;
   
